@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import WaveLinesDesktop1 from "@/assets/backgrounds/WaveLinesDesktop1.svg";
 import WaveLinesDesktop2 from "@/assets/backgrounds/WaveLinesDesktop2.svg";
@@ -42,7 +42,6 @@ const Banner = () => {
           className="absolute top-0 left-0 w-full h-full object-cover opacity-40 moving-bg"
         />
       </div>
-
       {/* Upper section color overlay for navbar visibility */}
       <div
         className="hidden  md:block absolute inset-x-0 top-0 left-1/2 h-64 bg-[#0053be] z-30"
@@ -80,8 +79,6 @@ const Banner = () => {
               </button>
             </div>
           </div>
-
-          {/* Image section with full right alignment and gradient overlay */}
           <div className="hidden md:block absolute top-0 right-0 w-[55%] h-full overflow-hidden">
             {/* Diagonal gradient overlay */}
             <div

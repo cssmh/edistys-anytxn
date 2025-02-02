@@ -68,7 +68,7 @@ const FutureFinance = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b h-[1300px] md:h-[1000px] from-white to-[#F1F7FE] py-20 px-4 md:px-24 overflow-hidden">
+    <div className="py-20 px-4 md:px-24 overflow-hidden">
       <div className="text-center mb-12">
         <h3 className="text-[#1F80F0] font-semibold text-lg mb-4">
           TECHNOLOGY BUILT FOR YOU
@@ -77,7 +77,6 @@ const FutureFinance = () => {
           The future of finance
         </h2>
       </div>
-
       <div className="flex justify-center gap-8 mb-8">
         {chooseData.map((item, index) => (
           <button
@@ -89,7 +88,6 @@ const FutureFinance = () => {
           </button>
         ))}
       </div>
-
       <Swiper
         modules={[Navigation]}
         className="mySwiper shadow-lg"
@@ -101,6 +99,32 @@ const FutureFinance = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <svg
+        className="undefined max-h-[240px] md:my-sm my-lg w-full min-h-[60px]"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="0 0 1920 280"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          opacity="0.7"
+          d="M-240 0L1680 0L-240 280L-240 0Z"
+          fill="url(#paint0_linear_6055_471)"
+        ></path>
+        <defs>
+          <linearGradient
+            id="paint0_linear_6055_471"
+            x1="458.5"
+            y1="1561.14"
+            x2="392.705"
+            y2="52.1879"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#1F80F0"></stop>
+            <stop offset="1" stopColor="#1F80F0" stopOpacity="0"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   );
 };
