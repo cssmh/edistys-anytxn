@@ -70,3 +70,172 @@
   }
 }
 
+/* new styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+@layer utilities {
+  .root-container {
+    @apply max-w-6xl mx-auto w-full xl:px-0 px-5;
+  }
+}
+
+.hero-bg {
+  background: radial-gradient(59.82% 121.73% at -9.66% 130.31%,
+      #00e9ea 0%,
+      #1f80f0 52.08%,
+      #005bc4 100%);
+}
+
+.gradient-overlay-img {
+  background: linear-gradient(190deg,
+      #1f80f0 15.05%,
+      rgba(31, 128, 240, 0) 30.39%);
+}
+
+.link-transmission::after {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.finance-animate1,
+.finance-animate2,
+.finance-animate3 {
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+.finance-animate1 {
+  animation-duration: 7s;
+  animation-name: animate1;
+}
+
+.finance-animate2 {
+  animation-duration: 9s;
+  animation-name: animate2;
+}
+
+.finance-animate3 {
+  animation-duration: 12s;
+  animation-name: animate3;
+}
+
+@keyframes animate1 {
+  0% {
+    top: 80px;
+  }
+
+  25% {
+    top: 75px;
+  }
+
+  50% {
+    top: 70px;
+  }
+
+  75% {
+    top: 75px;
+  }
+
+  100% {
+    top: 80px;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    top: 180px;
+  }
+
+  25% {
+    top: 175px;
+  }
+
+  50% {
+    top: 170px;
+  }
+
+  75% {
+    top: 175px;
+  }
+
+  100% {
+    top: 180px;
+  }
+}
+
+@keyframes animate3 {
+  0% {
+    top: 80px;
+  }
+
+  25% {
+    top: 75px;
+  }
+
+  50% {
+    top: 70px;
+  }
+
+  75% {
+    top: 75px;
+  }
+
+  100% {
+    top: 80px;
+  }
+}
+
+/* swiper css for future finance  */
+
+#future-finance .swiper-pagination {
+  top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  height: fit-content;
+  padding: 0px 30px;
+}
+
+#future-finance .swiper-pagination-bullet {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 600;
+  color: rgb(31, 128, 240);
+  font-size: 18px;
+  opacity: 1;
+  padding: 8px 10px;
+  border-radius: 25px;
+  background-color: transparent;
+  transition: all linear 0.4s;
+}
+
+#future-finance .swiper-pagination-bullet-active {
+  background-color: rgb(185, 217, 255) !important;
+}
+
+#future-finance .swiper-pagination-bullet:hover {
+  background-color: rgb(245, 250, 255);
+}
+
+#future-finance .swiper-horizontal {
+  padding-top: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  #future-finance .swiper-pagination {
+    display: none;
+  }
+
+  #future-finance .swiper-horizontal {
+    padding-top: 0px;
+  }
+}

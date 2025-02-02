@@ -1,6 +1,7 @@
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import "./globals.css";
+import "aos/dist/aos.css";
 
 export const metadata = {
   title: "Edistys Anytxn",

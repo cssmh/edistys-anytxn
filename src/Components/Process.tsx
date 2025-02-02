@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import Line1 from "@/assets/icons/easy-banking/Line1.svg";
 import Line2 from "@/assets/icons/easy-banking/Line2.svg";
@@ -7,6 +9,8 @@ import Card1 from "@/assets/icons/card_1.svg";
 import Card2 from "@/assets/icons/card_2.avif";
 import Card3 from "@/assets/icons/card_3.svg";
 import Bridge from "@/assets/icons/easy-banking/Bridge.svg";
+import { useEffect } from "react";
+import AOS from "aos";
 
 const diagramData = {
   coreTech: {
@@ -61,6 +65,13 @@ const featuresData = [
 ];
 
 const Process = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
   return (
     <div className="px-4 py-8 md:py-16 md:px-40">
       {/* Philosophy Header */}
@@ -180,7 +191,11 @@ const Process = () => {
       {/* Three Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {featuresData.map((feature, index) => (
-          <div key={index} className="bg-[#F8FCFF] p-8 rounded-3xl">
+          <div
+            key={index}
+            data-aos="fade-up"
+            className="bg-[#F8FCFF] p-8 rounded-3xl"
+          >
             <div className="mb-6">
               <div
                 className={`w-12 h-12 ${feature.bgColor} rounded-full flex items-center justify-center`}
