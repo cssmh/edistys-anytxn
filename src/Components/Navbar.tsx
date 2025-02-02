@@ -33,6 +33,7 @@ const Navbar: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<Language>({
     code: "EN",
     label: "EN (English)",
@@ -142,7 +143,7 @@ const Navbar: React.FC = () => {
                 src={isScrolled ? logo2 : logo}
                 alt="logo"
                 priority
-                className="h-7 md:h-auto"
+                className="h-6 md:h-auto"
               />
             </Link>
           </div>
@@ -206,13 +207,37 @@ const Navbar: React.FC = () => {
                 <div style={borderStyle(index)} />
               </div>
             ))}
-            <button
-              type="button"
-              className="outline-none border border-white rounded-full flex items-center gap-x-3 py-2 px-3"
-            >
-              <MdLanguage size={15} />
-              EN <FaChevronDown size={10} />
-            </button>
+            <div className="relative" ref={languageRef}>
+              <button
+                type="button"
+                className="outline-none border border-white text-white rounded-full flex items-center gap-x-2 py-2 px-3"
+                onClick={() =>
+                  setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
+                }
+              >
+                <MdLanguage size={15} />
+                {selectedLanguage.code} <FaChevronDown size={10} />
+              </button>
+              {isLanguageDropdownOpen && (
+                <div
+                  className="absolute top-full left-0 mt-1 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1"
+                  onMouseLeave={() => setIsLanguageDropdownOpen(false)}
+                >
+                  {languages.map((lang, index) => (
+                    <button
+                      key={index}
+                      className="block px-4 py-2 text-base border-b text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={() => {
+                        setSelectedLanguage(lang);
+                        setIsLanguageDropdownOpen(false);
+                      }}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <div className="hidden md:flex justify-end">
             <Link

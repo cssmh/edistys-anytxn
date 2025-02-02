@@ -4,7 +4,7 @@ import "./globals.css";
 import "aos/dist/aos.css";
 
 export const metadata = {
-  title: "Edistys Anytxn",
+  title: "Home Page | AnyTech",
   description: "Edistys Anytxn",
 };
 
