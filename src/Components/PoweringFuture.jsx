@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import sub_banner_people from "@/src/assets/backgrounds/banner_people_2.webp";
-import sub_banner_icon_1 from "@/src/assets/icons/sub_banner_icon_1.svg";
-import sub_banner_icon_2 from "@/src/assets/icons/sub_banner_icon_2.svg";
-import sub_banner_icon_3 from "@/src/assets/icons/sub_banner_icon_3.svg";
-import bg_line_1 from "@/src/assets/frames/story/2.svg";
-import bg_line_2 from "@/src/assets/frames/story/3.svg";
+import sub_banner_people from "@/assets/backgrounds/banner_people_2.webp";
+import sub_banner_icon_1 from "@/assets/icons/sub_banner_icon_1.svg";
+import sub_banner_icon_2 from "@/assets/icons/sub_banner_icon_2.svg";
+import sub_banner_icon_3 from "@/assets/icons/sub_banner_icon_3.svg";
+import bg_line_1 from "@/assets/frames/story/2.svg";
+import bg_line_2 from "@/assets/frames/story/3.svg";
 
 const PoweringFuture = () => {
   return (

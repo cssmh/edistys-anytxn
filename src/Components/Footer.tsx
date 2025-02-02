@@ -1,4 +1,4 @@
-import logo from "@/src/assets/icons/logo.svg";
+import logo from "@/assets/icons/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -2,19 +2,19 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import WaveLinesDesktop1 from "@/src/assets/backgrounds/WaveLinesDesktop1.svg";
-import WaveLinesDesktop2 from "@/src/assets/backgrounds/WaveLinesDesktop2.svg";
-import WaveLinesDesktop3 from "@/src/assets/backgrounds/WaveLinesDesktop3.svg";
-import WaveLinesDesktop4 from "@/src/assets/backgrounds/WaveLinesDesktop4.svg";
-import banner_people from "@/src/assets/backgrounds/banner_people.avif";
-import chevronRightWhite from "@/src/assets/icons/ChevronRightWhite.svg";
+import WaveLinesDesktop1 from "@/assets/backgrounds/WaveLinesDesktop1.svg";
+import WaveLinesDesktop2 from "@/assets/backgrounds/WaveLinesDesktop2.svg";
+import WaveLinesDesktop3 from "@/assets/backgrounds/WaveLinesDesktop3.svg";
+import WaveLinesDesktop4 from "@/assets/backgrounds/WaveLinesDesktop4.svg";
+import banner_people from "@/assets/backgrounds/banner_people.avif";
+import chevronRightWhite from "@/assets/icons/ChevronRightWhite.svg";
 
 const Banner = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="relative w-full h-[650px] overflow-hidden bg-[#0053be] pt-[9rem] md:pt-0"
+      className="relative w-full h-[650px] overflow-hidden bg-[#0053be] pt-[9rem] md:pt-0 animate-bg-move"
       style={{
         clipPath: "polygon(0% 0%, 100% 0, 100% 80%, 0% 100%)",
       }}
@@ -23,23 +23,23 @@ const Banner = () => {
         <Image
           src={WaveLinesDesktop1}
           alt="Wave pattern 1"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover moving-bg "
           priority
         />
         <Image
           src={WaveLinesDesktop2}
           alt="Wave pattern 2"
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-80 moving-bg"
         />
         <Image
           src={WaveLinesDesktop3}
           alt="Wave pattern 3"
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-60"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-60 moving-bg"
         />
         <Image
           src={WaveLinesDesktop4}
           alt="Wave pattern 4"
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-40 moving-bg"
         />
       </div>
 
@@ -51,13 +51,10 @@ const Banner = () => {
             "linear-gradient(to bottom, rgba(28, 136, 239, 1), rgba(28, 136, 239, 0))",
         }}
       />
-
-      {/* Content container */}
       <div className="relative h-full px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row h-full items-center md:pl-28">
-          {/* Text content */}
+        <div className="flex flex-col md:flex-row h-full items-center md:pl-24">
           <div className="w-full md:w-1/2 text-white space-y-6 z-20">
-            <h1 className="text-[50px] md:text-[68px] font-bold leading-tight">
+            <h1 className="text-[50px] md:text-7xl font-bold leading-tight">
               Embrace the
               <br />
               future of finance

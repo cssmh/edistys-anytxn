@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Globe, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import logo from "@/src/assets/icons/logo.svg";
-import logo2 from "@/src/assets/icons/logo_2.svg";
-import chevronRightWhite from "@/src/assets/icons/ChevronRightWhite.svg";
-import chevronRight from "@/src/assets/icons/ChevronRight.svg";
+import logo from "@/assets/icons/logo.svg";
+import logo2 from "@/assets/icons/logo_2.svg";
+import chevronRightWhite from "@/assets/icons/ChevronRightWhite.svg";
+import chevronRight from "@/assets/icons/ChevronRight.svg";
 import Image from "next/image";
 
 interface NavigationItem {
@@ -40,9 +40,9 @@ const Navbar: React.FC = () => {
   const solutionsRef = useRef<HTMLDivElement>(null);
 
   const solutions = [
-    { label: "AnyCaaS", href: "/solutions/src/anycaas" },
-    { label: "AnyBaaS", href: "/solutions/src/anybaas" },
-    { label: "AnyPaaS", href: "/solutions/src/anypaas" },
+    { label: "AnyCaaS", href: "/solutions/anycaas" },
+    { label: "AnyBaaS", href: "/solutions/anybaas" },
+    { label: "AnyPaaS", href: "/solutions/anypaas" },
   ];
 
   const languages = [
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
       dropdownItems: solutions,
     },
     { href: "/services", label: "Services", showBorder: true },
-    { href: "/src/about", label: "About Us", showBorder: true },
+    { href: "/about", label: "About Us", showBorder: true },
   ];
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
