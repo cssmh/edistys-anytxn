@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Globe, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
@@ -143,9 +144,9 @@ const Navbar = () => {
                 {item.hasDropdown ? (
                   <div>
                     <button
-                      onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                      style={linkStyle(true)}
                       className="flex items-center gap-2"
+                      style={linkStyle(true)}
+                      onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
                     >
                       {item.label}
                       {isSolutionsOpen ? (

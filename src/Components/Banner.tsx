@@ -64,7 +64,7 @@ const Banner = () => {
               future of finance
             </h1>
             <p className="text-lg md:text-xl opacity-90 max-w-[600px] mt-4">
-              Reimagine financial services with AnyTech's open platform,
+              Reimagine financial services with AnyTech&apos;s open platform,
               distributed banking solution that powers transformation
             </p>
             <div className="w-full">
