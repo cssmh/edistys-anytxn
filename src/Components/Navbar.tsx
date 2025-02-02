@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { Globe, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { MdLanguage } from "react-icons/md";
+import { FaChevronDown } from "react-icons/fa";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import logo from "@/assets/icons/logo.svg";
 import logo2 from "@/assets/icons/logo_2.svg";
 import chevronRightWhite from "@/assets/icons/ChevronRightWhite.svg";
@@ -150,15 +152,22 @@ const Navbar: React.FC = () => {
                 key={index}
                 className="relative"
                 ref={item.hasDropdown ? solutionsRef : null}
-                onMouseEnter={() => item.showBorder && setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => {
+                  if (item.showBorder) setHoveredIndex(index);
+                  if (item.hasDropdown) setIsSolutionsOpen(true);
+                }}
+                onMouseLeave={() => {
+                  setHoveredIndex(null);
+                  if (item.hasDropdown) setIsSolutionsOpen(false);
+                }}
               >
                 {item.hasDropdown ? (
                   <div>
                     <button
                       className="flex items-center gap-2"
                       style={linkStyle(true)}
-                      onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                      onMouseEnter={() => setIsSolutionsOpen(true)}
+                      onMouseLeave={() => setIsSolutionsOpen(false)}
                     >
                       {item.label}
                       {isSolutionsOpen ? (
@@ -171,12 +180,16 @@ const Navbar: React.FC = () => {
                       )}
                     </button>
                     {isSolutionsOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+                      <div
+                        className="absolute top-full left-0 mt-1 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1"
+                        onMouseEnter={() => setIsSolutionsOpen(true)}
+                        onMouseLeave={() => setIsSolutionsOpen(false)}
+                      >
                         {item.dropdownItems.map((dropItem, dropIndex) => (
                           <Link
                             key={dropIndex}
                             href={dropItem.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-base border-b text-gray-700 hover:bg-gray-100"
                             onClick={() => setIsSolutionsOpen(false)}
                           >
                             {dropItem.label}
@@ -193,47 +206,14 @@ const Navbar: React.FC = () => {
                 <div style={borderStyle(index)} />
               </div>
             ))}
-
-            {/* Language Selector */}
-            <div className="relative" ref={languageRef}>
-              <button
-                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className={`flex items-center space-x-2 px-3 py-2 ${
-                  isScrolled
-                    ? "text-[#1D86F0] border-[#1D86F0]"
-                    : "text-white border-white"
-                } rounded-3xl border transition-colors duration-200`}
-              >
-                <Globe size={18} />
-                <span>{selectedLanguage.code}</span>
-                {isLanguageOpen ? (
-                  <ChevronUp className="transition-transform" size={16} />
-                ) : (
-                  <ChevronDown className="transition-transform" size={16} />
-                )}
-              </button>
-              {isLanguageOpen && (
-                <div className="absolute top-full right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div className="py-1">
-                    {languages.map((lang, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setSelectedLanguage(lang);
-                          setIsLanguageOpen(false);
-                        }}
-                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        {lang.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <button
+              type="button"
+              className="outline-none border border-white rounded-full flex items-center gap-x-3 py-2 px-3"
+            >
+              <MdLanguage size={15} />
+              EN <FaChevronDown size={10} />
+            </button>
           </div>
-
-          {/* Contact Us Button */}
           <div className="hidden md:flex justify-end">
             <Link
               href="/contact"
@@ -257,7 +237,6 @@ const Navbar: React.FC = () => {
               />
             </Link>
           </div>
-
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
@@ -269,7 +248,6 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-
       {/* Mobile Navigation */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
@@ -323,7 +301,6 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
-
           {/* Mobile Language Selector */}
           <div className="px-3 py-2">
             <select
