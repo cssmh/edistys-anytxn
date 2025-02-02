@@ -132,9 +132,8 @@ const Navbar: React.FC = () => {
                 : "bg-[#1B76E9] md:bg-transparent"
             }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[5.8rem]">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
@@ -145,8 +144,6 @@ const Navbar: React.FC = () => {
               />
             </Link>
           </div>
-
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-12 text-lg">
             {navigationData.map((item, index) => (
               <div
