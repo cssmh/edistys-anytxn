@@ -3,8 +3,8 @@ import Navbar from "../Components/Navbar";
 import "./globals.css";
 
 export const metadata = {
-  title: "Edistys Task",
-  description: "Edistys Task",
+  title: "Edistys Anytxn",
+  description: "Edistys Anytxn",
 };
 
 export default function RootLayout({ children }) {
