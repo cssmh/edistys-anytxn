@@ -143,7 +143,7 @@ const Navbar: React.FC = () => {
                 src={isScrolled ? logo2 : logo}
                 alt="logo"
                 priority
-                className="h-6 md:h-auto"
+                className="h-7"
               />
             </Link>
           </div>
@@ -210,7 +210,11 @@ const Navbar: React.FC = () => {
             <div className="relative" ref={languageRef}>
               <button
                 type="button"
-                className="outline-none border border-white text-white rounded-full flex items-center gap-x-2 py-2 px-3"
+                className={`outline-none border ${
+                  isScrolled
+                    ? "border-[#1D86F0] text-[#1D86F0]"
+                    : "border-white text-white"
+                } rounded-full flex items-center gap-x-2 py-2 px-3`}
                 onClick={() =>
                   setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
                 }
@@ -244,8 +248,8 @@ const Navbar: React.FC = () => {
               href="/contact"
               className={`flex items-center gap-2.5 border text-xl text-white px-8 py-2.5 font-semibold rounded transition-all duration-200 ${
                 isScrolled
-                  ? "bg-[#FE8B53] border-[#FE8B53]"
-                  : "hover:bg-white hover:text-blue-600 hover:shadow-lg"
+                  ? "bg-[#FE8B53] border-[#FE8B53] hover:border-b-2 hover:border-blue-600"
+                  : "hover:bg-white hover:text-blue-600"
               }`}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}

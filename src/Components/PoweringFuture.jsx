@@ -11,10 +11,8 @@ import bg_line_2 from "@/assets/frames/story/3.svg";
 const PoweringFuture = () => {
   return (
     <div
-      className="relative w-full py-20 max-w-[1190px] mx-auto overflow-hidden"
-      style={{
-        clipPath: "polygon(0% 0%, 100% 0, 100% 80%, 0% 100%)",
-      }}
+      className="relative w-full py-16 px-5 max-w-[1190px] mx-auto overflow-hidden"
+      style={{ clipPath: "polygon(0% 0%, 100% 0, 100% 80%, 0% 100%)" }}
     >
       <Image
         src={bg_line_2}
@@ -26,19 +24,21 @@ const PoweringFuture = () => {
         alt="Background Line 1"
         className="hidden md:block absolute bottom-1/3 right-[12%] w-auto h-auto z-30 opacity-70"
       />
-      <Image
-        src={bg_line_1}
-        alt="Background Line 1"
-        className="hidden md:block absolute bottom-48 right-[35%] w-auto h-auto z-30"
-      />
-      <div className="flex flex-col md:flex-row items-center md:space-x-32">
-        <div className="w-full md:w-1/2 space-y-8">
+      <div className="flex flex-col items-center md:flex-row md:space-x-16">
+        <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
           <p className="text-[#1C88EF] font-bold tracking-wider uppercase">
             Powering the Future of Finance
           </p>
-          <h2 className="text-3xl md:text-6xl font-semibold text-gray-900 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 leading-tight">
             Uncovering new ways to delight customers
           </h2>
+          <div className="w-full flex justify-center md:hidden my-5">
+            <Image
+              src={sub_banner_people}
+              alt="Professional Working"
+              className="w-80 h-auto object-cover shadow-xl"
+            />
+          </div>
           <p className="text-lg text-gray-700 font-bold">
             AnyTech is revolutionizing financial technology by introducing
             innovative and real-time transaction account processing
@@ -59,13 +59,25 @@ const PoweringFuture = () => {
             />
           </div>
           <div className="absolute top-20 -left-2 sm:-left-10 rounded-full shadow-lg">
-            <Image src={sub_banner_icon_1} alt="Icon 1" className="w-20 h-20" />
+            <Image
+              src={sub_banner_icon_1}
+              alt="Icon 1"
+              className="w-16 h-16 sm:w-20 sm:h-20"
+            />
           </div>
-          <div className="absolute top-48 left-20 sm:left-14 rounded-full shadow-lg">
-            <Image src={sub_banner_icon_2} alt="Icon 2" className="w-20 h-20" />
+          <div className="absolute top-48 left-10 sm:left-14 rounded-full shadow-lg">
+            <Image
+              src={sub_banner_icon_2}
+              alt="Icon 2"
+              className="w-16 h-16 sm:w-20 sm:h-20"
+            />
           </div>
           <div className="absolute top-10 right-[0rem] sm:right-[3rem] rounded-full shadow-lg">
-            <Image src={sub_banner_icon_3} alt="Icon 3" className="w-30 h-30" />
+            <Image
+              src={sub_banner_icon_3}
+              alt="Icon 3"
+              className="w-16 h-16 sm:w-20 sm:h-20"
+            />
           </div>
         </div>
       </div>

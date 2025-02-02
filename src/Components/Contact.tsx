@@ -138,7 +138,7 @@ const Contact = () => {
       </div>
       <div className="max-w-6xl mt-3 mx-auto h-full flex items-center relative z-10">
         <div className="space-y-5 p-5 lg:p-0">
-          <h2 className=" text-3xl md:text-5xl lg:text-6xl text-white font-medium">
+          <h2 className=" text-4xl md:text-5xl lg:text-6xl text-white font-medium">
             Legacy no longer
           </h2>
           <p className="text-white">

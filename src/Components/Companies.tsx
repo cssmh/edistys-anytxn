@@ -52,7 +52,7 @@ const Companies = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16" ref={ref}>
+    <div className="max-w-6xl mx-auto px-4 py-6" ref={ref}>
       <h2 className="text-center text-xl font-bold text-[#1F80F0] mb-8">
         TRUSTED BY THE BEST
       </h2>
@@ -66,7 +66,7 @@ const Companies = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.2 }}
           >
-            <div className="text-4xl md:text-8xl font-bold text-[#1F80F0] md:mb-6">
+            <div className="text-6xl md:text-8xl font-bold text-[#1F80F0] md:mb-6">
               {stat.prefix}
               {inView && (
                 <CountUp end={stat.value} duration={2.5} separator="," />

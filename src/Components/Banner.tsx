@@ -44,7 +44,7 @@ const Banner = () => {
       </div>
       {/* Upper section color overlay for navbar visibility */}
       <div
-        className="hidden  md:block absolute inset-x-0 top-0 left-1/2 h-64 bg-[#0053be] z-30"
+        className="hidden md:block absolute inset-x-0 top-0 left-1/2 h-64 bg-[#0053be] z-30"
         style={{
           background:
             "linear-gradient(to bottom, rgba(28, 136, 239, 1), rgba(28, 136, 239, 0))",
@@ -79,8 +79,22 @@ const Banner = () => {
               </button>
             </div>
           </div>
+          {/* Mobile: Banner image at the bottom */}
+          <div className="md:hidden w-full h-[200px] relative mt-8">
+            <Image
+              src={banner_people}
+              alt="Professional in business setting"
+              fill
+              className="object-cover"
+              style={{
+                objectPosition: "right center",
+                clipPath: "polygon(0% 0%, 100% 0, 100% 80%, 0% 100%)",
+              }}
+              priority
+            />
+          </div>
+          {/* Desktop: Banner image on the right */}
           <div className="hidden md:block absolute top-0 right-0 w-[55%] h-full overflow-hidden">
-            {/* Diagonal gradient overlay */}
             <div
               className="absolute inset-0 z-10"
               style={{

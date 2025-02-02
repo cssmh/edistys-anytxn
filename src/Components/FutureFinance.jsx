@@ -4,7 +4,7 @@ import choose_1 from "@/assets/frames/choose_1.webp";
 import choose_2 from "@/assets/frames/choose_2.avif";
 import choose_3 from "@/assets/frames/choose_3.avif";
 import choose_4 from "@/assets/frames/choose_4.jpg";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -60,10 +60,12 @@ const chooseData = [
 
 const FutureFinance = () => {
   const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const goToSlide = (index) => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
+      setActiveIndex(index);
     }
   };
 
@@ -77,12 +79,16 @@ const FutureFinance = () => {
           The future of finance
         </h2>
       </div>
-      <div className="flex justify-center gap-8 mb-8">
+      <div className="hidden md:flex justify-center gap-8 mb-8">
         {chooseData.map((item, index) => (
           <button
             key={item.id}
             onClick={() => goToSlide(index)}
-            className="px-12 py-2.5 text-lg text-[#1F80F0] font-bold rounded-full transition-all duration-300 bg-[#B9D9FF]"
+            className={`px-12 text-[#1F80F0] py-2.5 text-lg font-bold rounded-full transition-all duration-300 ${
+              activeIndex === index
+                ? "bg-[#B9D9FF]"
+                : ""
+            }`}
           >
             {item.title}
           </button>
@@ -92,6 +98,7 @@ const FutureFinance = () => {
         modules={[Navigation]}
         className="mySwiper shadow-lg"
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       >
         {chooseData.map((item, index) => (
           <SwiperSlide key={index}>
@@ -100,7 +107,7 @@ const FutureFinance = () => {
         ))}
       </Swiper>
       <svg
-        className="undefined max-h-[240px] md:my-sm my-lg w-full min-h-[60px]"
+        className="max-h-[240px] md:my-sm my-lg w-full min-h-[60px]"
         preserveAspectRatio="xMidYMid slice"
         viewBox="0 0 1920 280"
         fill="none"

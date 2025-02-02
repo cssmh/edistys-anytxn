@@ -1,6 +1,7 @@
 import logo from "@/assets/icons/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa";
 
 const footerData = {
   companyName: "Any Technology Pte Ltd.",
@@ -19,10 +20,15 @@ const Footer = () => {
     <div className="bg-[#002045]">
       <footer className="text-white text-sm divide-y-2 divide-[#0A2A5C]">
         <div className="max-w-6xl mx-auto px-6 py-14 flex flex-col md:flex-row justify-between gap-8 items-center">
-          <div className="flex items-center">
+          <div className="flex justify-between w-full items-center">
             <Image src={logo} alt="AnyTech Logo" className="h-10" />
+            <div className="flex items-center gap-5 lg:hidden">
+              <FaLinkedin className="text-3xl cursor-pointer text-[#1e80f1]" />
+              <FaPhone className="text-3xl cursor-pointer text-[#1e80f1]" />
+              <FaEnvelope className="text-3xl cursor-pointer text-[#1e80f1]" />
+            </div>
           </div>
-          <nav className="flex space-x-4 text-[#00D1D7]">
+          <nav className="hidden lg:flex space-x-4 text-[#00D1D7]">
             {footerData.links.slice(0, 4).map((link, index) => (
               <Link
                 key={index}
