@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { Globe, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import logo from "@/src/assets/icons/logo.svg";
@@ -9,19 +9,35 @@ import chevronRightWhite from "@/src/assets/icons/ChevronRightWhite.svg";
 import chevronRight from "@/src/assets/icons/ChevronRight.svg";
 import Image from "next/image";
 
-const Navbar = () => {
+interface NavigationItem {
+  href: string;
+  label: string;
+  showBorder: boolean;
+  hasDropdown?: boolean;
+  dropdownItems?: { label: string; href: string }[];
+}
+
+interface Language {
+  code: string;
+  label: string;
+}
+
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>({
+    code: "EN",
+    label: "EN (English)",
+  });
 
-  // Refs for click outside detection
-  const languageRef = useRef(null);
-  const solutionsRef = useRef(null);
+  const languageRef = useRef<HTMLDivElement>(null);
+  const solutionsRef = useRef<HTMLDivElement>(null);
 
   const solutions = [
     { label: "AnyCaaS", href: "/solutions/src/anycaas" },
@@ -36,7 +52,7 @@ const Navbar = () => {
     { code: "TW", label: "TW (Traditional Chinese)" },
   ];
 
-  const navigationData = [
+  const navigationData: NavigationItem[] = [
     {
       href: "/solutions",
       label: "Solutions",
@@ -48,27 +64,26 @@ const Navbar = () => {
     { href: "/src/about", label: "About Us", showBorder: true },
   ];
 
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
-
-  // Handle click outside for dropdowns
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (languageRef.current && !languageRef.current.contains(event.target)) {
-        setIsLanguageOpen(false);
-      }
-      if (
-        solutionsRef.current &&
-        !solutionsRef.current.contains(event.target)
-      ) {
-        setIsSolutionsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      languageRef.current &&
+      !languageRef.current.contains(event.target as Node)
+    ) {
+      setIsLanguageOpen(false);
+    }
+    if (
+      solutionsRef.current &&
+      !solutionsRef.current.contains(event.target as Node)
+    ) {
+      setIsSolutionsOpen(false);
+    }
   }, []);
 
-  // Handle scroll behavior
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [handleClickOutside]);
+
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
@@ -82,7 +97,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
 
-  const linkStyle = (isDropdown = false) => ({
+  const linkStyle = (isDropdown = false): React.CSSProperties => ({
     position: "relative",
     display: "flex",
     alignItems: "center",
@@ -94,7 +109,7 @@ const Navbar = () => {
     cursor: isDropdown ? "pointer" : "default",
   });
 
-  const borderStyle = (index) => ({
+  const borderStyle = (index: number): React.CSSProperties => ({
     position: "absolute",
     left: 0,
     right: 0,
@@ -321,7 +336,7 @@ const Navbar = () => {
                 const selected = languages.find(
                   (lang) => lang.code === e.target.value
                 );
-                setSelectedLanguage(selected);
+                setSelectedLanguage(selected || languages[0]);
               }}
             >
               {languages.map((lang, index) => (
